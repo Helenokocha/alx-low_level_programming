@@ -55,7 +55,7 @@ char **strtow(char *str)
 		return (NULL);
 	for (i = 0; i <= len; i++)
 	{
-		if (str[i] == '' || str[i] == '\0')
+		if (str[i] == ' ' || str[i] == '\0')
 		{
 			if (c)
 
@@ -65,7 +65,7 @@ char **strtow(char *str)
 			if (tmp == NULL)
 					return (NULL);
 			while (stat < end)
-			*tmp++ = str[start++];
+			*tmp++ = str[stat++];
 			*tmp = '\0';
 		matrix[k] = tmp - c;
 		k++;
@@ -73,7 +73,7 @@ char **strtow(char *str)
 		}
 	}
 	else if (c++ == 0)
-		start = i;
+		stat = i;
 	}
 	matrix[k] = NULL;
 	return (matrix);
